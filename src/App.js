@@ -1,32 +1,28 @@
-import Accordion from './components/Accordion'
-
+import Sidebar from './components/Sidebar';
+import Route from './components/Route';
+import AccordionPage from './pages/AccordionPage';
+import DropdownPage from './pages/DropdownPage';
+import ButtonsPage from './pages/ButtonsPage'
 
 
 function App() {
-    const items = [
-        {
-            id: "eeeee",
-            label: "Question 1",
-            content: "ccndjcncas cansnddjd jdjdjdjdjdjdjq lqlalalala aaa aaa aaaaaaiiii iiiiiiii iccc ccc cccccc cne",
-        },
-        {
-            id: "aaaaa",
-            label: "Question 2",
-            content: "ccndjcncas cansnddjd jdjdjdjdjdjdjq lqlalalala aaa aaa aaaaaaiiii iiiiiiii iccc ccc cccccc cne",
-        },
-        {
-            id: "wwwww",
-            label: "Question 3",
-            content: "ccndjcncas cansnddjd jdjdjdjdjdjdjq lqlalalala aaa aaa aaaaaaiiii iiiiiiii iccc ccc cccccc cne",
-        }
-    ];
-
-
-
-return (
-    <Accordion items={items}/>
-)
-
+    
+    return (
+        <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+            <Sidebar/>
+            <div className="col-span-5">
+            <Route path="/accordion">
+                <AccordionPage/>
+            </Route>
+            <Route path="/">
+                <DropdownPage/>
+            </Route>
+            <Route path="/buttons">
+                <ButtonsPage/>
+            </Route>
+            </div>
+        </div>
+    )
 }
 
 export default App;
